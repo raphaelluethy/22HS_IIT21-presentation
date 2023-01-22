@@ -45,13 +45,16 @@ fonts:
 Raphael Lüthy & George Rowlands
 
 ---
+layout: image-right
 
+image: https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp4241384.jpg&f=1&nofb=1&ipt=223fe6f6ace4f0bdf6722d165d16da905c8c8f543c0b137e4f92fc1e3a33f059&ipo=images
+---
 # Table of contents
 
 - Who are we?
 - What is CEEX
 - Initial State
-- Problem and its Solution
+- Problems and their Solutions
 - Learnings
 - Future Work
 - QnA
