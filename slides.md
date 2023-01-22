@@ -1,51 +1,421 @@
 ---
 # try also 'default' to start simple
-theme: seriph
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
-background: https://source.unsplash.com/collection/94734566/1920x1080
-# apply any windi css classes to the current slide
-class: 'text-center'
-# https://sli.dev/custom/highlighters.html
-highlighter: shiki
-# show line numbers in code blocks
-lineNumbers: false
-# some information about the slides, markdown enabled
-info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
 
-  Learn more at [Sli.dev](https://sli.dev)
+theme: default
+
+# random image from a curated Unsplash collection by Anthony
+
+# like them? see https://unsplash.com/collections/94734566/slidev
+
+background: /AdobeStock_308681961.jpeg
+
+# apply any windi css classes to the current slide
+
+class: 'text-center'
+
+# https://sli.dev/custom/highlighters.html
+
+highlighter: shiki
+lineNumbers: true
+
+# some information about the slides, markdown enabled
+
+info: Presentation for IP5 Project
+
 # persist drawings in exports and build
-drawings:
-  persist: false
+
 # use UnoCSS
+
 css: unocss
+
+fonts:
+    # basically the text
+    sans: 'Robot'
+    # use with `font-serif` css class from windicss
+    serif: 'Robot Slab'
+    # for code blocks, inline code, etc.
+    mono: 'Fira Code'
+
 ---
 
-# Welcome to Slidev
+# CEEX – Clean Energy Exchange
 
-Presentation slides for developers
+## IP5 22HS_IIT21
 
-<div class="pt-12">
-  <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
-    Press Space for next page <carbon:arrow-right class="inline"/>
-  </span>
+Raphael Lüthy & George Rowlands
+
+---
+
+# Table of contents
+
+- Who are we?
+- What is CEEX
+- Initial State
+- Problem and its Solution
+- Learnings
+- Future Work
+- QnA
+
+---
+
+# Who are we
+
+Raphi & Groog
+
+---
+
+# What is CEEX
+
+---
+layout: fact
+---
+
+# Initial State
+
+---
+layout: two-cols-header
+---
+
+# Initial State
+
+::left::
+
+## Code Base
+
+- Hard Coded Components
+- Hard Coded Values
+
+```html
+
+<mat-option value="option1">current Week</mat-option>
+<mat-option value="option2">current Month</mat-option>
+<mat-option value="option3">last Month</mat-option>
+<mat-option value="option4">last 3 Month</mat-option>
+<mat-option value="option4">last Year</mat-option>
+```
+
+```ts
+export class DataService {
+    baseurl = 'http://127.0.0.1:8000/';
+    resetUrl = this.baseurl + 'auth/request-reset-email/';
+...
+}
+```
+
+::right::
+
+## Deployment & Architecture
+
+- Server
+- Pipeline
+- SSL / Reverse Proxy
+
+<div class="text-center">
+```mermaid {scale:0.5}
+graph TD
+    A[Developer] --> |1. Push to 'main' or 'development'| B(Github)
+    B-->|2.Pipeline builds Images| C[Docker Hub]
+    B-->|3. Pipeline calls Webhook|D[Portainer]
+    C-->|4. Pulls Images|D
+    D --> |4.Deploys Images & exposes Webapp| E[Internet]
+```
 </div>
 
-<div class="abs-br m-6 flex gap-2">
-  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" alt="GitHub"
-    class="text-xl icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon-logo-github />
-  </a>
-</div>
+---
 
-<!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
--->
+# Initial State
+
+## Hard Coded Components
+
+```html {all|6,9,13,15}
+
+<mat-card class="list-element">
+    <img id="img1" src="../../../assets/solarHouse.png" alt="customerImage">
+    <div class="list-element__info ">
+        <div class="horizontal_info">
+            <h2>Max Mustermann</h2>
+            <img src="../../../assets/solar.png" alt="solarEnergy">
+        </div>
+        <span id="amount">200kWh</span>
+        <div class="horizontal_info last_row ">
+            <div>
+                <img id="pin" src="../../../assets/pin.png" alt="pin">
+                <span id="distance">300m</span>
+            </div>
+            <span id="horizontal_info">0.18 CHF / kWh</span>
+        </div>
+    </div>
+</mat-card>
+```
+---
+
+# Initial State
+# Hard Coded
+
+
+```ts {all|2|all}
+export class DataService {
+    baseurl = 'http://127.0.0.1:8000/';
+    resetUrl = this.baseurl + 'auth/request-reset-email/';
+...
+}
+```
+<p></p>
+
+<v-click>
+
+## Issues
+
+</v-click>
+
+<v-clicks>
+
+- Maintainability
+  - -> Hard to keep track where to change values
+- Reusability
+  - -> Can't be reused if different values are needed
+- Deployability
+  - -> Deployments need to change values at runtime
+
+</v-clicks>
+
+---
+layout: image-right
+
+# the image source
+image: https://wallpapercave.com/wp/wp7848331.png
+---
+
+# Initial State
+## Containerization, Pipeline and Deployment
+- No Containerization
+- No Pipeline
+- No Server
+<img class="mt-10 rounded" src="/Github_Root_Before.png">
+
+::right::
+
+
+---
+layout: two-cols-header
+---
+
+# Initial State
+## Architecture
+
+::left::
+
+<p/>
+
+- What Side does what?
+- Who owns which data?
+- How does the communication between Customer and Business Logic work?
+- Who owns the Authentication?
+
+::right::
+
+<img class="rounded h-90" src="/Initial_Architecture_Overview.svg">
+
+---
+layout: two-cols-header
+---
+
+# Initial State
+## Usability
+
+::left::
+
+<p/>
+
+<v-click>
+
+- A lot of different fields
+- Functionalities with insufficient titles
+- No clear distinction of importance
+- No clear indication of what interactive
+
+</v-click>
+
+<v-click>
+
+<p class="text-3xl text-red-300">-> Items need more explanation</p>
+
+</v-click>
+
+::right::
+
+<img class="rounded mt-5" src="/Profile_OLD.png">
+
+---
+layout: fact
+---
+
+# Solutions
+
+---
+layout: fact
+---
+
+# Deployment & Containerization
+
+---
+
+# Deployment & Containerization
+## Server setup
+
+<img class="rounded mt-5 h-100" src="/Cycle_of_Deployment.svg">
+
+---
+layout: two-cols-header
+---
+
+# Deployment & Containerization
+## Server setup
+
+::right::
+
+<img class="rounded mt-5 h-50" src="/Cycle_of_Deployment.svg">
+
+::left::
+Steps to take:
+
+- Dockerfiles (Containerize Application)
+- Server
+- Reverse Proxy (traefik)
+- Portainer
+- Pipeline
+
+---
+layout: two-cols-header
+---
+
+# Deployment & Containerization
+## Dockerfiles
+
+::left::
+
+Frontend:
+```yaml {all|4,11}
+FROM node:14-alpine as build
+WORKDIR /app
+RUN npm install -g @angular/cli@13.3.10
+RUN npm install -g serve@14.1.2
+COPY ./frontend/package.json ./
+RUN npm install --force
+COPY ./frontend .
+RUN ng build --configuration=production 
+  --output-path=dist
+EXPOSE 3000
+CMD ["serve", "./dist", "-p", "3000"]
+```
+
+
+::right::
+
+Backend:
+
+```yaml {all}
+FROM python:3.10-alpine3.15
+  # stops stdout and stderr streams being buffered
+ENV PYTHONUNBUFFERED 1
+WORKDIR /app/backend
+COPY backend/requirements.txt /app/backend/
+RUN ["pip", "install", "-r", "requirements.txt"]
+COPY backend/ceex_api /app/backend/
+EXPOSE 8000
+```
+
+---
+layout: two-cols-header
+---
+
+# Deployment & Containerization
+## Server
+
+::left::
+
+Actual Server:
+
+<img class="rounded mt-20 w-80" src="/Switch_engines_logo.png">
+
+<a class="text-coolgray absolute mt-25 text-sm" href="https://www.switch.ch/engines/">Switch Engines Website</a>
+
+::right::
+
+Reverse Proxy:
+<img class="rounded ml-10 h-70" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Traefik.logo.png/1200px-Traefik.logo.png">
+
+<a class="text-coolgray text-sm" href="https://doc.traefik.io/traefik/">Traefik Documentation</a>
+
+---
+layout: two-cols-header
+---
+
+# Deployment & Containerization
+## Portainer
+
+::left::
+
+<p/>
+
+- Control of Images / Containers
+- Redeployment of latest Image via Webhook
+- Stacks
+
+::right::
+
+<img class="rounded mt-10 w-120" src="/Portainer.png">
+
+---
+layout: two-cols-header
+---
+
+# Deployment & Containerization
+## Portainer: "Stack"
+
+::left::
+
+<p/>
+
+- Specifies Docker Images
+- Connect the backend to the database
+- Expose UI and API to Reverse Proxy
+
+::right::
+
+```yaml {all|4,8|5,6,9,10,11,13-19}
+version: '3.9'
+services:
+    ui:
+        image: 'raphaelluethy/ceex:ui-prod-latest'
+        networks:
+          - proxy
+    api:
+        image: 'raphaelluethy/ceex:api-prod-latest'
+        networks:
+            - proxy
+            - database
+
+networks:
+    proxy:
+        name: 'proxy'
+        external: true
+    database:
+        name: 'database'
+        external: true
+```
+
+---
+
+# Architecture
+
+---
+
+# Data Agreement
+
+---
+
+# Proxy
 
 ---
 
@@ -91,22 +461,23 @@ Here is another comment.
 
 # Navigation
 
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/navigation.html)
+Hover on the bottom-left corner to see the navigation's controls
+panel, [learn more](https://sli.dev/guide/navigation.html)
 
 ### Keyboard Shortcuts
 
-|     |     |
-| --- | --- |
-| <kbd>right</kbd> / <kbd>space</kbd>| next animation or slide |
+|                                                     |                             |
+|-----------------------------------------------------|-----------------------------|
+| <kbd>right</kbd> / <kbd>space</kbd>                 | next animation or slide     |
 | <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd> | previous slide |
-| <kbd>down</kbd> | next slide |
+| <kbd>up</kbd>                                       | previous slide              |
+| <kbd>down</kbd>                                     | next slide                  |
 
 <!-- https://sli.dev/guide/animations.html#click-animations -->
 <img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
+v-click
+class="absolute -bottom-9 -left-7 w-80 opacity-50"
+src="https://sli.dev/assets/arrow-bottom-left.svg"
 />
 <p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
 
@@ -121,16 +492,16 @@ Use code snippets and get the highlighting directly![^1]
 
 ```ts {all|2|1-6|9|all}
 interface User {
-  id: number
-  firstName: string
-  lastName: string
-  role: string
+    id: number
+    firstName: string
+    lastName: string
+    role: string
 }
 
 function updateUser(id: number, update: User) {
-  const user = getUser(id)
-  const newUser = { ...user, ...update }
-  saveUser(id, newUser)
+    const user = getUser(id)
+    const newUser = {...user, ...update}
+    saveUser(id, newUser)
 }
 ```
 
@@ -159,10 +530,12 @@ function updateUser(id: number, update: User) {
 
 You can use Vue components directly inside your slides.
 
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
+We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your
+custom components is also super easy.
 
 ```html
-<Counter :count="10" />
+
+<Counter :count="10"/>
 ```
 
 <!-- ./components/Counter.vue -->
@@ -174,7 +547,8 @@ Check out [the guides](https://sli.dev/builtin/components.html) for more.
 <div>
 
 ```html
-<Tweet id="1390115482657726468" />
+
+<Tweet id="1390115482657726468"/>
 ```
 
 <Tweet id="1390115482657726468" scale="0.65" />
@@ -199,7 +573,8 @@ class: px-20
 
 # Themes
 
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
+Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for
+tools. Switching between themes by just **one edit** in your frontmatter:
 
 <div grid="~ cols-2 gap-2" m="-t-2">
 
@@ -233,11 +608,12 @@ preload: false
 Animations are powered by [@vueuse/motion](https://motion.vueuse.org/).
 
 ```html
+
 <div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }">
-  Slidev
+        v-motion
+        :initial="{ x: -80 }"
+        :enter="{ x: 0 }">
+    Slidev
 </div>
 ```
 
@@ -315,7 +691,7 @@ $$
 \begin{array}{c}
 
 \nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &
-= \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
+= \frac{4\pi}{c}\vec{\mathbf{j}} \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
 
 \nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
 
