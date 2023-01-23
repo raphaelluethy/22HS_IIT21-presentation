@@ -12,6 +12,7 @@ background: /AdobeStock_308681961.jpeg
 # apply any windi css classes to the current slide
 
 class: 'text-center'
+colorSchema: 'light'
 
 # https://sli.dev/custom/highlighters.html
 
