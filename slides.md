@@ -170,6 +170,10 @@ graph TD
 </div>
 </div>
 
+<!--
+2 Big Points Of Interest
+-->
+
 ---
 
 # Initial State
@@ -241,8 +245,6 @@ image: https://cdn.dribbble.com/users/453325/screenshots/5573953/empty_state.png
 - No Server
 <img class="mt-10 rounded" src="/Github_Root_Before.png">
 
-::right::
-
 ---
 layout: two-cols-header
 ---
@@ -285,7 +287,7 @@ layout: two-cols-header
 
 <v-click>
 
-<p class="text-3xl text-red-300">➔ Items need more explanation!</p>
+<p class="text-3xl text-red-500">➔ Items need more explanation!</p>
 
 </v-click>
 
@@ -464,6 +466,10 @@ Reverse Proxy:
 
 <a class="text-coolgray text-sm" href="https://doc.traefik.io/traefik/">Traefik Documentation</a>
 
+<!--
+Traefik, reverse proxy that allows you to add new containers without having to change base config, as it fetches sub-configs dynamically
+-->
+
 ---
 layout: two-cols-header
 ---
@@ -482,6 +488,10 @@ layout: two-cols-header
 ::right::
 
 <img class="rounded mt-10 w-120" src="/Portainer.png">
+
+<!--
+"go to pic on the right side when we get to stacks
+-->
 
 ---
 layout: two-cols-header
@@ -521,6 +531,10 @@ networks:
         name: 'database'
         external: true
 ```
+
+<!--
+explain what stacks are and mention compose similarity
+-->
 
 ---
 layout: two-cols
@@ -589,6 +603,10 @@ Original Problems:
 
 <img class="rounded ml-10 mt-10 h-90" src="/Initial_Architecture_Overview.svg">
 
+<!--
+- Those were our initial problems, how do we solve them?- "CLICK"
+-->
+
 ---
 layout: two-cols-header
 ---
@@ -641,6 +659,11 @@ response = requests.request(
 
 return JsonResponse(response.json(), safe=False)
 ```
+
+<!--
+FE builds object with 2 properties that store url and HTTP request method
+-->
+
 ---
 layout: fact
 ---
@@ -878,4 +901,3 @@ layout: fact
 ---
 
 # Any Questions? 🔎
-
