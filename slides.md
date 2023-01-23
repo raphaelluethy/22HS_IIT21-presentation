@@ -297,13 +297,13 @@ layout: two-cols-header
 # Dynamic Data & Functionality
 
 - Static data replaced with dynamically fetched data
-- Refactored and abstracted code for re-usability
+- Refactored and abstracted code for reusability
 
 ::left::
 
 ## Before
 
-```jsx{2,6,8,11}
+```jsx{6|2,8,11}
 ...
         <span id="amount">200kWh</span>
         <div class="horizontal_info last_row ">
@@ -324,14 +324,14 @@ layout: two-cols-header
 
 ## After
 
-```jsx{all}
+```jsx{none|all}
  <supplier-card
         *ngFor="let supplier of supplierList"
         [supplier]="supplier" 
  />
 ```
 
-```jsx{3,5,8,11,12}
+```jsx{3,5|8,11,12}
 ...
 <div class="supplier-distance">
     <mat-icon 
@@ -619,6 +619,113 @@ response = requests.request(
 
 return JsonResponse(response.json(), safe=False)
 ```
+---
+layout: fact
+---
+
+# Usability
+
+---
+layout: two-cols-header
+---
+
+# Usability
+
+## Design
+
+- Consistent colors, fonts and spacing
+- Restructured components for a better workflow
+
+::left::
+
+Old:
+<img class="" src="/oldPV.png">
+
+::right::
+New:
+<img class="" src="/newPV.png">
+
+---
+layout: two-cols-header
+---
+
+# Usability
+
+## Design
+
+- Highlighted key features
+<br/>
+<br/>
+::left::
+
+Old:
+<img class="" src="/oldHighlight.png">
+
+::right::
+New:
+<img class="" src="/newHighlight.png">
+
+---
+layout: two-cols-header
+---
+
+# Usability
+
+## Internationalization
+
+::left::
+
+- More accessible for users
+- Broadens customer pool 
+- Currently supported languages: English, German, French
+
+<img class="mt-10" src="/languageSelector.png">
+
+::right::
+
+<img class="" src="/french.png">
+
+
+---
+layout: two-cols-header
+---
+
+# Usability
+
+::left::
+
+## Tooltips
+
+- Convey additional information to users
+- Hidden to avoid filling the screen
+
+<img class="mt-10 w-80" src="/tooltip2.png">
+
+::right::
+
+<img class="mt-50" src="/tooltip1.png">
+
+---
+layout: two-cols-header
+---
+
+# Usability
+
+## Dialog Windows
+
+::left::
+
+- Tooltip not always enough
+- Used for:
+  - Additional Information
+  - Forms
+
+<img class="mt-10 w-50" src="/dialogLink.png">
+
+::right::
+
+<img class="mt-5 w-60" src="/dialog.png">
+
 ---
 layout: fact
 ---
