@@ -51,15 +51,15 @@ layout: image-right
 
 image: https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp4241384.jpg&f=1&nofb=1&ipt=223fe6f6ace4f0bdf6722d165d16da905c8c8f543c0b137e4f92fc1e3a33f059&ipo=images
 ---
-# Table of contents
+# Table of Contents
 
-- Who are we?
+- Who Are We?
 - What is CEEX
 - Initial State
-- Problems and their Solutions
+- Problems and Their Solutions
 - Learnings
 - Future Work
-- QnA
+- Q & A
 
 ---
 layout: two-cols-header
@@ -79,16 +79,25 @@ layout: two-cols-header
 <img class="mt-10 h-70 rounded" src="/rl_portrait.png">
 
 ---
-layout: default
+layout: two-cols-header
 ---
 
 # What is CEEX?
 
-- Swiss startup working with 3 universities
+::left::
+
+- Swiss startup working with three universities
 - Supported by InnoSuisse
 - Trade sustainably produced energy as a community
 
-<img class="h-80 rounded" src="/trading.png"/>
+<img class="mt-3 rounded" src="/trading.png"/>
+
+::right::
+<div class="ml-25">
+
+<img class="mt-3 h-80 rounded" src="https://www.hslu.ch/Services/Other/SelbstpflegeDB/ImageService/ImageHandler.ashx/?id=062dcc10-64f9-4d5b-8b65-46c0f61623db&s=DetailView"/>
+Christian Dollfus - Customer
+</div>
 
 ---
 layout: default
@@ -96,9 +105,9 @@ layout: default
 
 # What is CEEX?
 
-- Centralized to decentralized market
+- Change from centralized to decentralized
 - Results in an open and self-regulated market
-- Competitive and stable market
+- Competitiveness and stability
 
 <img class="h-80" src="/decentralized.jpg"/>
 
@@ -115,6 +124,7 @@ layout: two-cols-header
 # Initial State
 
 ::left::
+
 
 ## Code Base
 
@@ -139,6 +149,7 @@ export class DataService {
 ```
 
 ::right::
+<div class="ml-10">
 
 ## Deployment & Architecture
 
@@ -155,6 +166,8 @@ graph TD
     C-->|4. Pulls Images|D
     D --> |4.Deploys Images & exposes Webapp| E[Internet]
 ```
+
+</div>
 </div>
 
 ---
@@ -163,8 +176,7 @@ graph TD
 
 ## Static Components
 
-```html {all|6,9,13,15}
-
+```html {all|5,8,12,14}
 <mat-card class="list-element">
     <img id="img1" src="../../../assets/solarHouse.png" alt="customerImage">
     <div class="list-element__info ">
@@ -242,10 +254,10 @@ layout: two-cols-header
 
 <p/>
 
-- What Side does what?
-- Who owns which data?
-- How does the communication between Customer and Business Logic work?
-- Who owns the Authentication?
+- Which service does what?
+- Who owns what data?
+- How does the communication between customer and business logic work?
+- Who does the authentication?
 
 ::right::
 
@@ -273,7 +285,7 @@ layout: two-cols-header
 
 <v-click>
 
-<p class="text-3xl text-red-300">-> Items need more explanation</p>
+<p class="text-3xl text-red-300">➔ Items need more explanation!</p>
 
 </v-click>
 
@@ -306,35 +318,37 @@ layout: two-cols-header
 
 ## Before
 
-```jsx{6|2,8,11}
+```jsx{all|6|2,8,11}
 ...
-        <span id="amount">200kWh</span>
-        <div class="horizontal_info last_row ">
-            <div>
-                <img id="pin" 
-                    src="../../../assets/pin.png"
-                >
-                <span id="distance">300m</span>
-            </div>
-            <span id="horizontal_info">
-                0.18 CHF / kWh
-            </span>
-        </div>
+<span id="amount">200kWh</span>
+<div class="horizontal_info last_row ">
+    <div>
+        <img id="pin" 
+            src="../../../assets/pin.png"
+        >
+        <span id="distance">300m</span>
+    </div>
+    <span id="horizontal_info">
+        0.18 CHF / kWh
+    </span>
+</div>
 ...
 ```
 
 ::right::
 
+<div class="ml-5">
+
 ## After
 
-```jsx{none|all}
+```jsx{all|none|all}
  <supplier-card
         *ngFor="let supplier of supplierList"
         [supplier]="supplier" 
  />
 ```
 
-```jsx{3,5|8,11,12}
+```jsx{all|3,5|8,11,12}
 ...
 <div class="supplier-distance">
     <mat-icon 
@@ -349,6 +363,8 @@ layout: two-cols-header
 <span>{{ supplier?.price }} / kWh</span>
 ...
 ```
+
+</div>
 
 ---
 layout: fact
@@ -377,9 +393,9 @@ layout: two-cols-header
 ::left::
 Steps to take:
 
-- Dockerfiles (Containerize Application)
+- Dockerfiles, containerization of application
 - Server
-- Reverse Proxy (traefik)
+- Traefik, reverse proxy
 - Portainer
 - Pipeline
 
@@ -410,11 +426,12 @@ CMD ["serve", "./dist", "-p", "3000"]
 
 ::right::
 
+<div class="ml-5">
+
 Backend:
 
 ```docker {all}
 FROM python:3.10-alpine3.15
-  # stops stdout and stderr streams being buffered
 ENV PYTHONUNBUFFERED 1
 WORKDIR /app/backend
 COPY backend/requirements.txt /app/backend/
@@ -422,6 +439,8 @@ RUN ["pip", "install", "-r", "requirements.txt"]
 COPY backend/ceex_api /app/backend/
 EXPOSE 8000
 ```
+
+</div>
 
 ---
 layout: two-cols-header
@@ -456,8 +475,8 @@ layout: two-cols-header
 
 <p/>
 
-- Control of Images / Containers
-- Redeployment of latest Image via Webhook
+- Control of Docker images & containers
+- Redeployment of the latest app via a webhook
 - Stacks
 
 ::right::
@@ -475,9 +494,9 @@ layout: two-cols-header
 
 <p/>
 
-- Specifies Docker Images
+- Specifies Docker images
 - Connect the backend to the database
-- Expose UI and API to Reverse Proxy
+- Expose UI and API to reverse proxy
 
 ::right::
 
@@ -510,13 +529,13 @@ layout: two-cols
 # Deployment & Containerization
 ## Pipeline
 
-1. Push to Branch "main" (production) or "development" (staging)
-2. Spin up Ubuntu VM
-3. Checkout the Source Code
+1. Push to branch "main" (production) or "development" (staging)
+2. Start Ubuntu VM
+3. Checkout the source code
 4. Login to Docker Hub
-5. Build the Docker Image
-6. Push the Docker Image to Docker Hub
-7. Call Webhook of Portainer
+5. Build the Docker image
+6. Push the Docker image to Docker Hub
+7. Call webhook of Portainer
 8. Cleanup
 
 ::right::
@@ -561,10 +580,10 @@ layout: two-cols-header
 
 Original Problems:
 
-- What Side does what?
-- Who owns which data?
-- How does the communication between Customer and Business Logic work?
-- Who owns the Authentication?
+- Which service does what?
+- Who owns what data?
+- How does the communication between customer and business logic work?
+- Who does the authentication?
 
 ::right::
 
@@ -579,13 +598,13 @@ layout: two-cols-header
 
 ::left::
 Webapp:
-- Own Authentication Layer
+- Authentication layer
 - Stores what user belongs to which _**Node**_
-- Provides Proxy for user to communicate with Business Logic
+- Proxy for users to communicate with Business Logic
 
 Business Logic:
-- Home of the Algorithm
-- Stores all the data related to trading
+- Home of the algorithm
+- Stores all data related to trading
 
 <p class="text-sm">Node: Maps the actual household to the graph of the algorithm</p>
 
@@ -645,8 +664,13 @@ Old:
 <img class="rounded" src="/oldPV.png">
 
 ::right::
+
+<div class="ml-5">
+
 New:
 <img class="rounded" src="/newPV.png">
+
+</div>
 
 ---
 layout: two-cols-header
@@ -666,8 +690,12 @@ Old:
 <img class="rounded" src="/oldHighlight.png">
 
 ::right::
+<div class="ml-5">
+
 New:
 <img class="rounded" src="/newHighlight.png">
+
+</div>
 
 ---
 layout: two-cols-header
@@ -676,7 +704,7 @@ layout: two-cols-header
 # Usability
 
 ## SASS Usage
-
+- SASS provides additional feature for CSS
 - Set global styles
 - Used SASS features like: Variables, Mixins etc.
 
@@ -698,6 +726,9 @@ Before:
 ```
 
 ::right::
+
+<div class="ml-5">
+
 After:
 ```sass
 // Can be reused 
@@ -716,6 +747,8 @@ After:
 }
 ```
 
+</div>
+
 ---
 layout: two-cols-header
 ---
@@ -728,7 +761,8 @@ layout: two-cols-header
 
 - More accessible for users
 - Broadens customer pool 
-- Currently supported languages: English, German, French
+- Currently supported languages
+  - English, German, French
 
 <img class="mt-10 rounded" src="/languageSelector.png">
 
@@ -821,13 +855,16 @@ layout: two-cols-header
 
 - New technologies and frameworks
 - Communicating and coordinating a distributed team
-  - Dos and don'ts
-  - Future improvements
+  - Regular meetings
+  - Minimize external dependencies
 - How IP6 will work
+  - Faster initial overview
+  - Better time estimates
+  - Earlier feedback for report
 
 ::right::
 
-<img class="rounded" src="/learnings.png">
+<img class="rounded mt-15" src="/learnings.png">
 
 
 ---
