@@ -64,6 +64,8 @@ layout: two-cols-header
 ---
 # Who Are We?
 
+::left::
+
 ## George Rowlands
 
 <img class="mt-10 h-70 rounded" src="/George.png">
@@ -72,7 +74,7 @@ layout: two-cols-header
 
 ## Raphael Lüthy
 
-TODO
+<img class="mt-10 h-70 rounded" src="/rl_portrait.png">
 
 ---
 layout: default
