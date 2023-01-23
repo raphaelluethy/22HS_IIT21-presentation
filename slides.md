@@ -18,6 +18,8 @@ class: 'text-center'
 highlighter: shiki
 lineNumbers: true
 
+favicon: 'https://rvgs.ch/favicon.ico'
+
 # some information about the slides, markdown enabled
 
 info: Presentation for IP5 Project
@@ -64,6 +66,8 @@ layout: two-cols-header
 ---
 # Who Are We?
 
+::left::
+
 ## George Rowlands
 
 <img class="mt-10 h-70 rounded" src="/George.png">
@@ -72,7 +76,7 @@ layout: two-cols-header
 
 ## Raphael Lüthy
 
-TODO
+<img class="mt-10 h-70 rounded" src="/rl_portrait.png">
 
 ---
 layout: default
@@ -118,18 +122,18 @@ layout: two-cols-header
 - Static Values
 
 ```html
-
-<mat-option value="option1">current Week</mat-option>
-<mat-option value="option2">current Month</mat-option>
-<mat-option value="option3">last Month</mat-option>
-<mat-option value="option4">last 3 Month</mat-option>
-<mat-option value="option4">last Year</mat-option>
+<mat-option value="o1">current Week</mat-option>
+<mat-option value="o2">current Month</mat-option>
+<mat-option value="o3">last Month</mat-option>
+<mat-option value="o4">last 3 Month</mat-option>
+<mat-option value="o4">last Year</mat-option>
 ```
 
 ```ts
 export class DataService {
     baseurl = 'http://127.0.0.1:8000/';
-    resetUrl = this.baseurl + 'auth/request-reset-email/';
+    resetUrl = this.baseurl + 
+        'auth/request-reset-email/';
 ...
 }
 ```
@@ -226,7 +230,6 @@ image: https://cdn.dribbble.com/users/453325/screenshots/5573953/empty_state.png
 <img class="mt-10 rounded" src="/Github_Root_Before.png">
 
 ::right::
-
 
 ---
 layout: two-cols-header
