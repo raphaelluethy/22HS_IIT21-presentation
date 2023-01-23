@@ -60,14 +60,43 @@ image: https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave
 - QnA
 
 ---
+layout: two-cols-header
+---
+# Who Are We?
 
-# Who are we
+## George Rowlands
 
-Raphi & Groog
+<img class="mt-10 h-70 rounded" src="/George.png">
+
+::right::
+
+## Raphael Lüthy
+
+TODO
 
 ---
+layout: default
+---
 
-# What is CEEX
+# What is CEEX?
+
+- Swiss startup working with 3 universities
+- Supported by InnoSuisse
+- Trade sustainably produced energy as a community
+
+<img class="h-80" src="/trading.png"/>
+
+---
+layout: default
+---
+
+# What is CEEX?
+
+- Centralized to decentralized market
+- Results in an open and self-regulated market
+- Competitive and stable market
+
+<img class="h-80" src="/decentralized.jpg"/>
 
 ---
 layout: fact

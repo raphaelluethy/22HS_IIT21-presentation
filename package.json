@@ -10,7 +10,8 @@
     "@slidev/cli": "^0.38.4",
     "@slidev/theme-default": "*",
     "@slidev/theme-seriph": "*",
-    "slidev-theme-geist": "^0.8.1"
+    "slidev-theme-geist": "^0.8.1",
+    "slidev-theme-light-icons": "^1.0.2"
   },
   "devDependencies": {
     "playwright-chromium": "^1.29.2"
