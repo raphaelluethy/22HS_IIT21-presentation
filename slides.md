@@ -84,7 +84,7 @@ layout: default
 - Supported by InnoSuisse
 - Trade sustainably produced energy as a community
 
-<img class="h-80" src="/trading.png"/>
+<img class="h-80 rounded" src="/trading.png"/>
 
 ---
 layout: default
@@ -215,7 +215,7 @@ export class DataService {
 layout: image-right
 
 # the image source
-image: https://wallpapercave.com/wp/wp7848331.png
+image: https://cdn.dribbble.com/users/453325/screenshots/5573953/empty_state.png
 ---
 
 # Initial State
@@ -276,7 +276,7 @@ layout: two-cols-header
 
 ::right::
 
-<img class="rounded mt-5" src="/Profile_OLD.png">
+<img class="rounded mt-5" src="/oldProfile.png">
 
 ---
 layout: fact
@@ -639,11 +639,11 @@ layout: two-cols-header
 ::left::
 
 Old:
-<img class="" src="/oldPV.png">
+<img class="rounded" src="/oldPV.png">
 
 ::right::
 New:
-<img class="" src="/newPV.png">
+<img class="rounded" src="/newPV.png">
 
 ---
 layout: two-cols-header
@@ -656,14 +656,62 @@ layout: two-cols-header
 - Highlighted key features
 <br/>
 <br/>
+
 ::left::
 
 Old:
-<img class="" src="/oldHighlight.png">
+<img class="rounded" src="/oldHighlight.png">
 
 ::right::
 New:
-<img class="" src="/newHighlight.png">
+<img class="rounded" src="/newHighlight.png">
+
+---
+layout: two-cols-header
+---
+
+# Usability
+
+## SASS Usage
+
+- Set global styles
+- Used SASS features like: Variables, Mixins etc.
+
+::left::
+
+Before:
+```sass
+.supplier-info {
+    // common pattern
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    // font styles
+    ...
+    // other styles
+    ...
+}
+```
+
+::right::
+After:
+```sass
+// Can be reused 
+@mixin col($content: flex-start, $items: stretch) {
+  display: flex;
+  flex-direction: column;
+  justify-content: $content;
+  align-items: $items;
+}
+
+.supplier-info {
+    @include col(space-evenly);
+    @extend .card-title;
+    width: 100%;
+    padding: 0rem;
+}
+```
 
 ---
 layout: two-cols-header
@@ -679,11 +727,11 @@ layout: two-cols-header
 - Broadens customer pool 
 - Currently supported languages: English, German, French
 
-<img class="mt-10" src="/languageSelector.png">
+<img class="mt-10 rounded" src="/languageSelector.png">
 
 ::right::
 
-<img class="" src="/french.png">
+<img class="rounded" src="/french.png">
 
 
 ---
@@ -699,11 +747,11 @@ layout: two-cols-header
 - Convey additional information to users
 - Hidden to avoid filling the screen
 
-<img class="mt-10 w-80" src="/tooltip2.png">
+<img class="mt-10 w-80 rounded" src="/tooltip2.png">
 
 ::right::
 
-<img class="mt-50" src="/tooltip1.png">
+<img class="mt-50 rounded" src="/tooltip1.png">
 
 ---
 layout: two-cols-header
@@ -720,11 +768,64 @@ layout: two-cols-header
   - Additional Information
   - Forms
 
-<img class="mt-10 w-50" src="/dialogLink.png">
+<img class="mt-10 w-50 rounded" src="/dialogLink.png">
 
 ::right::
 
-<img class="mt-5 w-60" src="/dialog.png">
+<img class="mt-5 w-60 rounded" src="/dialog.png">
+
+---
+layout: fact
+---
+
+# Future Work
+
+---
+layout: two-cols-header
+---
+
+# Future Work
+
+::left::
+
+- Find new library for map
+  - OpenLayers or Leaflet
+- Italian language
+- Integrate HSLU data API
+- Improve registration process
+  - Address validation with Google API
+  - Geolocation from validated address
+  - Automatic information extraction from bill image
+
+::right::
+
+<img class="h-100 rounded" src="/map.png">
+
+---
+layout: fact
+---
+
+# Learnings
+
+
+---
+layout: two-cols-header
+---
+
+# Learnings
+
+::left::
+
+- New technologies and frameworks
+- Communicating and coordinating a distributed team
+  - Dos and don'ts
+  - Future improvements
+- How IP6 will work
+
+::right::
+
+<img class="rounded" src="/learnings.png">
+
 
 ---
 layout: fact
