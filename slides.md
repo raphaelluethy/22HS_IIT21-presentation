@@ -114,8 +114,8 @@ layout: two-cols-header
 
 ## Code Base
 
-- Hard Coded Components
-- Hard Coded Values
+- Static Components
+- Static Values
 
 ```html
 
@@ -157,7 +157,7 @@ graph TD
 
 # Initial State
 
-## Hard Coded Components
+## Static Components
 
 ```html {all|6,9,13,15}
 
@@ -182,7 +182,7 @@ graph TD
 ---
 
 # Initial State
-# Hard Coded
+# Static
 
 
 ```ts {all|2|all}
@@ -288,6 +288,69 @@ layout: fact
 layout: fact
 ---
 
+# Dynamic Data & Functionality
+
+---
+layout: two-cols-header
+---
+
+# Dynamic Data & Functionality
+
+- Static data replaced with dynamically fetched data
+- Refactored and abstracted code for re-usability
+
+::left::
+
+## Before
+
+```jsx{2,6,8,11}
+...
+        <span id="amount">200kWh</span>
+        <div class="horizontal_info last_row ">
+            <div>
+                <img id="pin" 
+                    src="../../../assets/pin.png"
+                >
+                <span id="distance">300m</span>
+            </div>
+            <span id="horizontal_info">
+                0.18 CHF / kWh
+            </span>
+        </div>
+...
+```
+
+::right::
+
+## After
+
+```jsx{all}
+ <supplier-card
+        *ngFor="let supplier of supplierList"
+        [supplier]="supplier" 
+ />
+```
+
+```jsx{3,5,8,11,12}
+...
+<div class="supplier-distance">
+    <mat-icon 
+        class="distance-icon" 
+        svgIcon="home_pin_icon"
+    />
+    <span class="distance-info">
+        {{ supplier?.distance }} km
+    </span>
+</div>
+<span>{{ supplier?.amount }} kWh</span>
+<span>{{ supplier?.price }} / kWh</span>
+...
+```
+
+---
+layout: fact
+---
+
 # Deployment & Containerization
 
 ---
@@ -327,7 +390,7 @@ layout: two-cols-header
 ::left::
 
 Frontend:
-```yaml {all|4,11}
+```docker {all|4,11}
 FROM node:14-alpine as build
 WORKDIR /app
 RUN npm install -g @angular/cli@13.3.10
@@ -346,7 +409,7 @@ CMD ["serve", "./dist", "-p", "3000"]
 
 Backend:
 
-```yaml {all}
+```docker {all}
 FROM python:3.10-alpine3.15
   # stops stdout and stderr streams being buffered
 ENV PYTHONUNBUFFERED 1
