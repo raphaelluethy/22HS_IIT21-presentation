@@ -87,9 +87,10 @@ layout: two-cols-header
 
 ::left::
 
-- Swiss startup working with three universities
+- Swiss startup to trade sustainably produced energy as a community
 - Supported by InnoSuisse
-- Trade sustainably produced energy as a community
+- Working with three universities
+
 
 <img class="mt-3 rounded" src="/trading.png"/>
 
@@ -99,6 +100,12 @@ layout: two-cols-header
 <img class="mt-3 h-80 rounded" src="https://www.hslu.ch/Services/Other/SelbstpflegeDB/ImageService/ImageHandler.ashx/?id=062dcc10-64f9-4d5b-8b65-46c0f61623db&s=DetailView"/>
 Christian Dollfus - Customer
 </div>
+
+<!-- some of you might be wondering what is CEEX as you might not yet be familiar with this project. CEEX stands for clean energy exchange and 
+is a swiss startup which was co-founded by our client Christian Dollfus. CEEX allows normal households to buy and sell their sustainably produced 
+energy between each other. So if you have solar panels on your house instead of selling your excessive energy to the distribution service prodiveders
+you could sell it to our neighbour or a friend at a better price. Currently there is a great need for energy solutions and CEEX can solve 
+satisfy these needs which is why they are supported by the swiss innovation promotion agency, innosuise and have been closely working with 3 swiss universites including FHNW. -->
 
 ---
 layout: default
@@ -111,6 +118,10 @@ layout: default
 - Competitiveness and stability
 
 <img class="h-80" src="/decentralized.jpg"/>
+
+<!-- The swiss government aims to open the swiss energy market by 2025 which is when CEEX will come in. The energy supply chain will then shift from a centrailized
+system to a decentralized system which results in a more open and self-regulating market. Because there is more inherintely more compotetivness in an open market
+the price for energy should become cheaper and the energy network more stable. --->
 
 ---
 layout: fact
@@ -694,7 +705,7 @@ layout: two-cols-header
 ## Design
 
 - Consistent colors, fonts and spacing
-- Restructured components for a better workflow
+- Restructured page layouts for a better userflow
 
 ::left::
 
@@ -903,7 +914,6 @@ layout: two-cols-header
 ::right::
 
 <img class="rounded mt-15" src="/learnings.png">
-
 
 ---
 layout: fact
