@@ -50,7 +50,7 @@ Raphael Lüthy & George Rowlands
 ---
 layout: image-right
 
-image: https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp4241384.jpg&f=1&nofb=1&ipt=223fe6f6ace4f0bdf6722d165d16da905c8c8f543c0b137e4f92fc1e3a33f059&ipo=images
+image: solar_neighborhood.png
 ---
 # Table of Contents
 
@@ -321,7 +321,7 @@ layout: two-cols-header
 
 ## Before
 
-```jsx{all|6|2,8,11}
+```jsx{all||2,6,8,11}
 ...
 <span id="amount">200kWh</span>
 <div class="horizontal_info last_row ">
@@ -344,14 +344,11 @@ layout: two-cols-header
 
 ## After
 
-```jsx{all|none|all}
+```jsx{all|1-4|9,12,15,16}
  <supplier-card
         *ngFor="let supplier of supplierList"
-        [supplier]="supplier" 
- />
-```
-
-```jsx{all|3,5|8,11,12}
+    [supplier]="supplier" 
+/>
 ...
 <div class="supplier-distance">
     <mat-icon 
@@ -735,7 +732,7 @@ layout: two-cols-header
 ::left::
 
 Before:
-```sass
+```sass{all|3-6}
 .supplier-info {
     // common pattern
     display: flex;
@@ -754,7 +751,7 @@ Before:
 <div class="ml-5">
 
 After:
-```sass
+```sass{all|2-7|2-7,10,11}
 // Can be reused 
 @mixin col($content: flex-start, $items: stretch) {
   display: flex;
