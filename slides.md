@@ -55,9 +55,10 @@ image: solar_neighborhood.png
 # Table of Contents
 
 - Who Are We?
-- What is CEEX
+- What is CEEX?
 - Initial State
-- Problems and Their Solutions
+- Our Goals
+- Problems and Solutions
 - Learnings
 - Future Work
 - Q & A
@@ -288,14 +289,10 @@ layout: two-cols-header
 
 <p/>
 
-<v-click>
-
 - A lot of different fields
 - Functionalities with insufficient titles
 - No clear distinction of importance
 - No clear indication of what interactive
-
-</v-click>
 
 <v-click>
 
@@ -322,6 +319,7 @@ layout: two-cols-header
 ::left::
 
 ## Goals
+<p/>
 
 1. "To develop a dynamic web application with a robust pipeline for deployment to a publicly accessible website."
 2. "To enhance the existing user interface by incorporating features that aid navigation within the complex realm of the energy market."
@@ -401,13 +399,6 @@ layout: fact
 # Deployment & Containerization
 
 ---
-
-# Deployment & Containerization
-## Server setup
-
-<img class="rounded mt-5 h-100" src="/Cycle_of_Deployment.svg">
-
----
 layout: two-cols-header
 ---
 
@@ -416,7 +407,17 @@ layout: two-cols-header
 
 ::right::
 
-<img class="rounded mt-5 h-50" src="/Cycle_of_Deployment.svg">
+<div class="text-center">
+```mermaid {scale:0.7}
+graph TD
+    A[Developer] --> |1. Push to 'main' or 'development'| B(Github)
+    B-->|2.Pipeline builds Images| C[Docker Hub]
+    B-->|3. Pipeline calls Webhook|D[Portainer]
+    C-->|4. Pulls Images|D
+    D --> |4.Deploys Images & exposes Webapp| E[Internet]
+```
+
+</div>
 
 ::left::
 Steps to take:
@@ -704,8 +705,8 @@ layout: two-cols-header
 
 ## Design
 
+- Restructured page layouts for a better user-flow
 - Consistent colors, fonts and spacing
-- Restructured page layouts for a better userflow
 
 ::left::
 
@@ -859,6 +860,10 @@ layout: two-cols-header
 ::right::
 
 <img class="mt-5 w-60 rounded" src="/dialog.png">
+
+<!--
+,
+-->
 
 ---
 layout: fact
