@@ -303,6 +303,23 @@ layout: fact
 # Solutions
 
 ---
+layout: two-cols-header
+
+---
+# Solutions
+
+::left::
+
+## Goals
+
+1. "To develop a dynamic web application with a robust pipeline for deployment to a publicly accessible website."
+2. "To enhance the existing user interface by incorporating features that aid navigation within the complex realm of the energy market."
+
+::right::
+
+<img class="mt-15 scale-150" src="https://www.isglobal.org/documents/10179/22225/ODS-circulo-EN-web.jpg/e24b39dd-45b6-44b2-b05d-7a501716b7e9?t=1671473183656">
+
+---
 layout: fact
 ---
 
